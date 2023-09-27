@@ -12,7 +12,8 @@
   "date_format",
   "time_format",
   "time_zones",
-  "code"
+  "code",
+  "flag"
  ],
  "fields": [
   {
@@ -49,15 +50,21 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Code"
+  },
+  {
+   "fieldname": "flag",
+   "fieldtype": "Attach",
+   "label": "Flag"
   }
  ],
  "icon": "fa fa-globe",
  "idx": 1,
  "links": [],
- "modified": "2022-08-05 18:33:27.880783",
+ "modified": "2023-09-19 16:57:11.171252",
  "modified_by": "Administrator",
  "module": "Geo",
  "name": "Country",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
