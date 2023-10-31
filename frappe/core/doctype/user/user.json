@@ -88,7 +88,12 @@
   "generate_keys",
   "column_break_65",
   "api_secret",
-  "onboarding_status"
+  "onboarding_status",
+  "chat_bot",
+  "chat_bot_user",
+  "followers",
+  "following",
+  "member_number"
  ],
  "fields": [
   {
@@ -617,13 +622,13 @@
    "options": "Module Profile"
   },
   {
-    "description": "Stores the datetime when the last reset password key was generated.",
-    "fieldname": "last_reset_password_key_generated_on",
-    "fieldtype": "Datetime",
-    "hidden": 1,
-    "label": "Last Reset Password Key Generated On",
-    "read_only": 1
-   },
+   "description": "Stores the datetime when the last reset password key was generated.",
+   "fieldname": "last_reset_password_key_generated_on",
+   "fieldtype": "Datetime",
+   "hidden": 1,
+   "label": "Last Reset Password Key Generated On",
+   "read_only": 1
+  },
   {
    "fieldname": "column_break_75",
    "fieldtype": "Column Break"
@@ -650,12 +655,12 @@
    "label": "Auto follow documents that you Like"
   },
   {
-    "default": "0",
-    "depends_on": "eval:(doc.document_follow_notify== 1)",
-    "fieldname": "follow_shared_documents",
-    "fieldtype": "Check",
-    "label": "Auto follow documents that are shared with you"
-   },
+   "default": "0",
+   "depends_on": "eval:(doc.document_follow_notify== 1)",
+   "fieldname": "follow_shared_documents",
+   "fieldtype": "Check",
+   "label": "Auto follow documents that are shared with you"
+  },
   {
    "default": "0",
    "depends_on": "eval:(doc.document_follow_notify== 1)",
@@ -669,6 +674,46 @@
    "fieldtype": "Small Text",
    "hidden": 1,
    "label": "Onboarding Status"
+  },
+  {
+   "fieldname": "chat_bot",
+   "fieldtype": "Link",
+   "label": "Chat Bot",
+   "options": "Chat Bot"
+  },
+  {
+   "fetch_from": "chat_bot.user",
+   "fetch_if_empty": 1,
+   "fieldname": "chat_bot_user",
+   "fieldtype": "Link",
+   "label": "Chat Bot User",
+   "options": "User"
+  },
+  {
+   "fieldname": "followers",
+   "fieldtype": "Table",
+   "label": "Followers",
+   "options": "Followers"
+  },
+  {
+   "fieldname": "following",
+   "fieldtype": "Table",
+   "label": "Following",
+   "options": "Followers"
+  },
+  {
+   "fieldname": "member_number",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Member Number",
+   "no_copy": 1,
+   "options": "Name",
+   "set_only_once": 1,
+   "unique": 1
   }
  ],
  "icon": "fa fa-user",
@@ -731,7 +776,7 @@
    "link_fieldname": "user"
   }
  ],
- "modified": "2023-06-05 17:26:04.127555",
+ "modified": "2023-10-17 09:34:50.510180",
  "modified_by": "Administrator",
  "module": "Core",
  "name": "User",
